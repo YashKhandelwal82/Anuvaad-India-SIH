@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuwaad India</title>
+    <link rel="shortcut icon" href="hero-img/logo.png" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section id="header">
+        <a id="logo" href="#"><img src="hero-img/logo.png" alt="logo" height="50px"></a>
+        <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a class="active" href="signin.html">Sign in</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-flatbed-suitcase"></i></a></li>
+        </ul>
+    </section>
+    <div class="main-content">
+        <div class="container active" id="signin-container">
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <input type="email" id="signin-email" placeholder="Email" required>
+                <input type="password" id="signin-password" placeholder="Password" required>
+                <button id="btn" type="submit">Sign In</button>
+            </form>
+            <div class="form-switch">
+                <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+            </div>
+        </div>
+
+        <div class="container" id="signup-container">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-name" placeholder="Full Name" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="userType" value="customer" required>
+                        Customer
+                    </label>
+                    <label>
+                        <input type="radio" name="userType" value="seller" required>
+                        Seller
+                    </label>
+                </div>
+                <div class="nri-info" id="nri-section">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="nri-check">
+                            I confirm that I am a Non-Resident Indian (NRI).
+                        </label>
+                    </div>
+                    <div id="nri-details">
+                        <input type="text" id="nri-id" placeholder="NRI ID or Passport ID">
+                        <select id="nri-country" required>
+                            <option value="">Select Country</option>
+                            <option value="af" class="flag-option"><img src="flags/af.png" alt="Afghanistan">
+                                <span>Afghanistan</span></option>
+                            <option value="bd" class="flag-option"><img src="flags/bd.png" alt="Bangladesh">
+                                <span>Bangladesh</span></option>
+                            <option value="bt" class="flag-option"><img src="flags/bt.png" alt="Bhutan">
+                                <span>Bhutan</span></option>
+                            <option value="in" class="flag-option"><img src="flags/in.png" alt="India">
+                                <span>India</span></option>
+                            <option value="mm" class="flag-option"><img src="flags/mm.png" alt="Myanmar">
+                                <span>Myanmar</span></option>
+                            <option value="np" class="flag-option"><img src="flags/np.png" alt="Nepal">
+                                <span>Nepal</span></option>
+                            <option value="pk" class="flag-option"><img src="flags/pk.png" alt="Pakistan">
+                                <span>Pakistan</span></option>
+                            <option value="lk" class="flag-option"><img src="flags/lk.png" alt="Sri Lanka"> <span>Sri
+                                    Lanka</span></option>
+                            <option value="tj" class="flag-option"><img src="flags/tj.png" alt="Tajikistan">
+                                <span>Tajikistan</span></option>
+                            <option value="mn" class="flag-option"><img src="flags/mn.png" alt="Mongolia">
+                                <span>Mongolia</span></option>
+                            <option value="vn" class="flag-option"><img src="flags/vn.png" alt="Vietnam">
+                                <span>Vietnam</span></option>
+                            <option value="kh" class="flag-option"><img src="flags/kh.png" alt="Cambodia">
+                                <span>Cambodia</span></option>
+                            <option value="la" class="flag-option"><img src="flags/la.png" alt="Laos"> <span>Laos</span>
+                            </option>
+                            <option value="cn" class="flag-option"><img src="flags/cn.png" alt="China">
+                                <span>China</span></option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="form-switch">
+                <p>Already have an account? <a href="#" onclick="showSignIn()">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSignIn() {
+            const signinContainer = document.getElementById('signin-container');
+            const signupContainer = document.getElementById('signup-container');
+
+            signinContainer.classList.add('active');
+            signupContainer.classList.remove('active');
+
+            signupContainer.style.zIndex = '1';
+            signinContainer.style.zIndex = '2';
+
+            setTimeout(() => {
+                signupContainer.style.display = 'none';
+                signinContainer.style.display = 'block';
+            }, 600);
+        }
+
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener("click", function (e) {
+            window.location.href = "index.html";
+        })
+        function showSignUp() {
+            const signinContainer = document.getElementById('signin-container');
+            const signupContainer = document.getElementById('signup-container');
+
+            signupContainer.classList.add('active');
+            signinContainer.classList.remove('active');
+
+            signinContainer.style.zIndex = '1';
+            signupContainer.style.zIndex = '2';
+
+            setTimeout(() => {
+                signinContainer.style.display = 'none';
+                signupContainer.style.display = 'block';
+            }, 600);
+        }
+
+        document.querySelectorAll('input[name="userType"]').forEach(function (element) {
+            element.addEventListener('change', function () {
+                const nriSection = document.getElementById('nri-section');
+
+                if (this.value === 'customer') {
+                    nriSection.classList.add('active');
+                } else {
+                    nriSection.classList.remove('active');
+                }
+            });
+        });
+
+        document.getElementById('nri-check').addEventListener('change', function () {
+            const nriDetails = document.getElementById('nri-details');
+
+            if (this.checked) {
+                nriDetails.style.display = 'block';
+            } else {
+                nriDetails.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- <script src="//code.tidio.co/uswm9jpeksneifkiiif6f7hmanne6qeg.js" async></script>  -->
+    <script src="//code.tidio.co/uswm9jpeksneifkiiif6f7hmamme6qeg.js" async></script>
+</body>
+
+</body>
+</body>
+
+</html>
